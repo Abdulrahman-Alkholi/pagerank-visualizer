@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PageRank Explorer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <script type="text/javascript" src="d3.v2.js"></script>
+    <script type="text/javascript" src="spider.js"></script>
+    <link type="text/css" rel="stylesheet" href="force.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="app__header">
+        <div class="brand">
+          <span class="brand__mark"></span>
+          <div>
+            <h1>PageRank Explorer</h1>
+            <p class="brand__sub">Force-directed link analysis</p>
+          </div>
+        </div>
+        <div class="stats" id="stats"></div>
+      </header>
+
+      <main class="board">
+        <section class="panel panel--graph">
+          <div class="panel__head">
+            <h2>Link Graph</h2>
+            <div class="panel__actions">
+              <button id="btn-restart" class="btn btn--ghost" type="button">
+                Reheat
+              </button>
+              <button id="btn-freeze" class="btn btn--ghost" type="button">
+                Freeze
+              </button>
+            </div>
+          </div>
+          <div id="chart" class="chart">
+            <div class="chart__hint">
+              Hover a node for details &middot; drag to reposition &middot;
+              double-click to open
+            </div>
+          </div>
+        </section>
+
+        <aside class="panel panel--side">
+          <div class="panel__head"><h2>Starting URL</h2></div>
+          <a
+            id="start-url"
+            class="start-url"
+            href="#"
+            target="_blank"
+            rel="noopener"
+          ></a>
+
+          <div class="panel__head"><h2>Legend</h2></div>
+          <div class="legend">
+            <div class="legend__scale" id="legend-scale"></div>
+            <div class="legend__labels">
+              <span>Low rank</span><span>High rank</span>
+            </div>
+            <p class="legend__note">
+              Node size and color both scale with PageRank.
+            </p>
+          </div>
+
+          <div class="panel__head"><h2>Top Pages</h2></div>
+          <ol class="toplist" id="toplist"></ol>
+        </aside>
+      </main>
+    </div>
+
+    <div id="tooltip" class="tooltip" role="tooltip" aria-hidden="true"></div>
+
+    <noscript>Enable JavaScript to view the visualization.</noscript>
+    <script type="text/javascript" src="force.js"></script>
+  </body>
+</html>
